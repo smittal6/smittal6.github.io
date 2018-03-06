@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Siddharth Mittal</title>
-    <link>smittal6.github.io/categories/</link>
+    <link>https://smittal6.github.io/categories/</link>
     <description>Recent content in Categories on Siddharth Mittal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-in</language>
     <copyright>&amp;copy; 2017 Siddharth Mittal</copyright>
-    <atom:link href="smittal6.github.io/categories/" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>

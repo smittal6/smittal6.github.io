@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Siddharth Mittal</title>
-    <link>smittal6.github.io/project/</link>
+    <link>https://smittal6.github.io/project/</link>
     <description>Recent content in Projects on Siddharth Mittal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-in</language>
     <copyright>&amp;copy; 2017 Siddharth Mittal</copyright>
     <lastBuildDate>Mon, 10 Jul 2017 22:39:51 +0530</lastBuildDate>
-    <atom:link href="smittal6.github.io/project/" rel="self" type="application/rss+xml" />
+    <atom:link href="/project/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Markov Chains and Hidden Markov Models</title>
-      <link>smittal6.github.io/project/markov/</link>
+      <link>https://smittal6.github.io/project/markov/</link>
       <pubDate>Mon, 10 Jul 2017 22:39:51 +0530</pubDate>
       
-      <guid>smittal6.github.io/project/markov/</guid>
+      <guid>https://smittal6.github.io/project/markov/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Reading project for CS201 [Discrete Math] course at IITK.&lt;/li&gt;
 &lt;li&gt;Read the classic &lt;a href=&#34;http://ai.stanford.edu/~pabbeel/depth_qual/Rabiner_Juang_hmms.pdf&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt; by Rabiner and Juang&lt;/li&gt;
@@ -26,10 +26,10 @@
     
     <item>
       <title>Speaker Change Detection</title>
-      <link>smittal6.github.io/project/scd/</link>
+      <link>https://smittal6.github.io/project/scd/</link>
       <pubDate>Mon, 10 Jul 2017 21:51:43 +0530</pubDate>
       
-      <guid>smittal6.github.io/project/scd/</guid>
+      <guid>https://smittal6.github.io/project/scd/</guid>
       <description></description>
     </item>
     
