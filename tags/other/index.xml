@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Other on Siddharth Mittal</title>
+    <link>https://smittal6.github.io/tags/other/</link>
+    <description>Recent content in Other on Siddharth Mittal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-in</language>
+    <copyright>&amp;copy; 2017 Siddharth Mittal</copyright>
+    <lastBuildDate>Mon, 10 Jul 2017 22:39:51 +0530</lastBuildDate>
+    <atom:link href="/tags/other/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Markov Chains and Hidden Markov Models</title>
+      <link>https://smittal6.github.io/project/markov/</link>
+      <pubDate>Mon, 10 Jul 2017 22:39:51 +0530</pubDate>
+      
+      <guid>https://smittal6.github.io/project/markov/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Reading project for CS201 [Discrete Math] course at IITK.&lt;/li&gt;
+&lt;li&gt;Read the classic &lt;a href=&#34;http://ai.stanford.edu/~pabbeel/depth_qual/Rabiner_Juang_hmms.pdf&#34; target=&#34;_blank&#34;&gt;paper&lt;/a&gt; by Rabiner and Juang&lt;/li&gt;
+&lt;li&gt;Gave a &lt;a href=&#34;https://github.com/smittal6/markov-and-hmm&#34; target=&#34;_blank&#34;&gt;presentation&lt;/a&gt; based on the paper&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

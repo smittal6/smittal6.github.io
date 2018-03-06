@@ -80,9 +80,9 @@
         
 
         <li class="nav-item">
-          <a href="../../#projects">
+          <a href="../../#posts">
             
-            <span>Projects</span>
+            <span>Posts</span>
           </a>
         </li>
 
@@ -92,9 +92,9 @@
         
 
         <li class="nav-item">
-          <a href="../../#posts">
+          <a href="../../#projects">
             
-            <span>Posts</span>
+            <span>Projects</span>
           </a>
         </li>
 
@@ -135,6 +135,10 @@
   <div>
     <h2><a href="https://smittal6.github.io/post/gans/">Comparing GAN-Hacks</a></h2>
     <div class="article-style">
+      
+      I finally successfully trained a simple Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different tricks help in the cause.
+The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.
+Training Params  Dataset: MNIST Optimizer: Adam Learning Rate: 0.0001 Epochs: 25 128 valued random noise Loss: One of (MSELoss, BCEWithLogitsLoss)  Results No Batch Normalization, LeakyRELU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, LeakyReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, PReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, ReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Mean Square Loss, Batch Normalization, LeakyReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Mean Square Loss, Batch Normalization, ReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Observations  LeakyReLU doesn&rsquo;t seem to work as good as claimed against ReLU.
       
     </div>
   </div>

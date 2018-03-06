@@ -18,14 +18,24 @@
       <guid>https://smittal6.github.io/post/gans/</guid>
       <description>
 
-&lt;p&gt;I finally implemented a vanilla Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different &lt;a href=&#34;https://github.com/soumith/ganhacks&#34; target=&#34;_blank&#34;&gt;tricks&lt;/a&gt; worked.&lt;/p&gt;
+&lt;p&gt;I finally successfully trained a simple Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different &lt;a href=&#34;https://github.com/soumith/ganhacks&#34; target=&#34;_blank&#34;&gt;tricks&lt;/a&gt; help in the cause.&lt;/p&gt;
 
-&lt;p&gt;Dataset used was MNIST.
-The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.&lt;/p&gt;
+&lt;p&gt;The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.&lt;/p&gt;
 
-&lt;h1 id=&#34;results&#34;&gt;Results&lt;/h1&gt;
+&lt;h2 id=&#34;training-params&#34;&gt;Training Params&lt;/h2&gt;
 
-&lt;h2 id=&#34;no-batch-normalization-leakyrelu-activation&#34;&gt;No Batch Normalization, LeakyRELU Activation:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Dataset: MNIST&lt;/li&gt;
+&lt;li&gt;Optimizer: Adam&lt;/li&gt;
+&lt;li&gt;Learning Rate: 0.0001&lt;/li&gt;
+&lt;li&gt;Epochs: 25&lt;/li&gt;
+&lt;li&gt;128 valued random noise&lt;/li&gt;
+&lt;li&gt;Loss: One of (MSELoss, BCEWithLogitsLoss)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+
+&lt;h3 id=&#34;no-batch-normalization-leakyrelu-activation&#34;&gt;No Batch Normalization, LeakyRELU Activation:&lt;/h3&gt;
 
 &lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
 &lt;tr align=&#39;center&#39;&gt;
@@ -40,7 +50,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 &lt;/tr&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&#34;batch-normalization-leakyrelu-activation&#34;&gt;Batch Normalization, LeakyReLU Activation:&lt;/h2&gt;
+&lt;h3 id=&#34;batch-normalization-leakyrelu-activation&#34;&gt;Batch Normalization, LeakyReLU Activation:&lt;/h3&gt;
 
 &lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
 &lt;tr align=&#39;center&#39;&gt;
@@ -55,7 +65,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 &lt;/tr&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&#34;batch-normalization-prelu-activation&#34;&gt;Batch Normalization, PReLU Activation:&lt;/h2&gt;
+&lt;h3 id=&#34;batch-normalization-prelu-activation&#34;&gt;Batch Normalization, PReLU Activation:&lt;/h3&gt;
 
 &lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
 &lt;tr align=&#39;center&#39;&gt;
@@ -70,7 +80,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 &lt;/tr&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&#34;batch-normalization-relu-activation&#34;&gt;Batch Normalization, ReLU Activation:&lt;/h2&gt;
+&lt;h3 id=&#34;batch-normalization-relu-activation&#34;&gt;Batch Normalization, ReLU Activation:&lt;/h3&gt;
 
 &lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
 &lt;tr align=&#39;center&#39;&gt;
@@ -85,7 +95,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 &lt;/tr&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&#34;least-square-loss-batch-normalization-leakyrelu-activation&#34;&gt;Least Square Loss, Batch Normalization, LeakyReLU Activation:&lt;/h2&gt;
+&lt;h3 id=&#34;mean-square-loss-batch-normalization-leakyrelu-activation&#34;&gt;Mean Square Loss, Batch Normalization, LeakyReLU Activation:&lt;/h3&gt;
 
 &lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
 &lt;tr align=&#39;center&#39;&gt;
@@ -100,7 +110,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 &lt;/tr&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&#34;least-square-loss-batch-normalization-relu-activation&#34;&gt;Least Square Loss, Batch Normalization, ReLU Activation:&lt;/h2&gt;
+&lt;h3 id=&#34;mean-square-loss-batch-normalization-relu-activation&#34;&gt;Mean Square Loss, Batch Normalization, ReLU Activation:&lt;/h3&gt;
 
 &lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
 &lt;tr align=&#39;center&#39;&gt;
@@ -114,6 +124,14 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 &lt;td&gt;&lt;img src = &#39;/img/gan/lsrelu25.png&#39;&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
+
+&lt;h3 id=&#34;observations&#34;&gt;Observations&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;LeakyReLU doesn&amp;rsquo;t seem to work as good as claimed against ReLU. Maybe because there is no convolutional layer involved in this architecture.&lt;/li&gt;
+&lt;li&gt;Batch Normalization helps. For the &amp;lsquo;No BatchNormalization&amp;rsquo; case, we see all the digits are similar. I guess Batch Normalization provides the necessary variance needed to get different digits, for other cases.&lt;/li&gt;
+&lt;li&gt;Square Loss is impressive. It gave better images for both LeakyReLU and ReLU activations.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

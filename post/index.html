@@ -80,9 +80,9 @@
         
 
         <li class="nav-item">
-          <a href="../#projects">
+          <a href="../#posts">
             
-            <span>Projects</span>
+            <span>Posts</span>
           </a>
         </li>
 
@@ -92,9 +92,9 @@
         
 
         <li class="nav-item">
-          <a href="../#posts">
+          <a href="../#projects">
             
-            <span>Posts</span>
+            <span>Projects</span>
           </a>
         </li>
 
@@ -172,105 +172,9 @@
 
     <div class="article-style"><p>
       
-      
-
-<p>I finally implemented a vanilla Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different <a href="https://github.com/soumith/ganhacks" target="_blank">tricks</a> worked.</p>
-
-<p>Dataset used was MNIST.
-The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.</p>
-
-<h1 id="results">Results</h1>
-
-<h2 id="no-batch-normalization-leakyrelu-activation">No Batch Normalization, LeakyRELU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/nobn0.png'>
-<td><img src = '/img/gan/nobn12.png'>
-<td><img src = '/img/gan/nobn25.png'>
-</tr>
-</table>
-
-<h2 id="batch-normalization-leakyrelu-activation">Batch Normalization, LeakyReLU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/bnlrelu0.png'>
-<td><img src = '/img/gan/bnlrelu12.png'>
-<td><img src = '/img/gan/bnlrelu25.png'>
-</tr>
-</table>
-
-<h2 id="batch-normalization-prelu-activation">Batch Normalization, PReLU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/bnprelu0.png'>
-<td><img src = '/img/gan/bnprelu12.png'>
-<td><img src = '/img/gan/bnprelu25.png'>
-</tr>
-</table>
-
-<h2 id="batch-normalization-relu-activation">Batch Normalization, ReLU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/bnrelu0.png'>
-<td><img src = '/img/gan/bnrelu12.png'>
-<td><img src = '/img/gan/bnrelu25.png'>
-</tr>
-</table>
-
-<h2 id="least-square-loss-batch-normalization-leakyrelu-activation">Least Square Loss, Batch Normalization, LeakyReLU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/lslrelu0.png'>
-<td><img src = '/img/gan/lslrelu12.png'>
-<td><img src = '/img/gan/lslrelu25.png'>
-</tr>
-</table>
-
-<h2 id="least-square-loss-batch-normalization-relu-activation">Least Square Loss, Batch Normalization, ReLU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/lsrelu0.png'>
-<td><img src = '/img/gan/lsrelu12.png'>
-<td><img src = '/img/gan/lsrelu25.png'>
-</tr>
-</table>
-
+      I finally successfully trained a simple Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different tricks help in the cause.
+The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.
+Training Params  Dataset: MNIST Optimizer: Adam Learning Rate: 0.0001 Epochs: 25 128 valued random noise Loss: One of (MSELoss, BCEWithLogitsLoss)  Results No Batch Normalization, LeakyRELU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, LeakyReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, PReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, ReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Mean Square Loss, Batch Normalization, LeakyReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Mean Square Loss, Batch Normalization, ReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Observations  LeakyReLU doesn&rsquo;t seem to work as good as claimed against ReLU.
       
     </p></div>
   </div>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dl on Siddharth Mittal</title>
+    <link>https://smittal6.github.io/tags/dl/</link>
+    <description>Recent content in Dl on Siddharth Mittal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-in</language>
+    <copyright>&amp;copy; 2017 Siddharth Mittal</copyright>
+    <lastBuildDate>Mon, 10 Jul 2017 21:51:43 +0530</lastBuildDate>
+    <atom:link href="/tags/dl/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Speaker Change Detection</title>
+      <link>https://smittal6.github.io/project/scd/</link>
+      <pubDate>Mon, 10 Jul 2017 21:51:43 +0530</pubDate>
+      
+      <guid>https://smittal6.github.io/project/scd/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

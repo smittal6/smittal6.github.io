@@ -80,9 +80,9 @@
         
 
         <li class="nav-item">
-          <a href="../../#projects">
+          <a href="../../#posts">
             
-            <span>Projects</span>
+            <span>Posts</span>
           </a>
         </li>
 
@@ -92,9 +92,9 @@
         
 
         <li class="nav-item">
-          <a href="../../#posts">
+          <a href="../../#projects">
             
-            <span>Posts</span>
+            <span>Projects</span>
           </a>
         </li>
 
@@ -169,14 +169,24 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<p>I finally implemented a vanilla Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different <a href="https://github.com/soumith/ganhacks" target="_blank">tricks</a> worked.</p>
+<p>I finally successfully trained a simple Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different <a href="https://github.com/soumith/ganhacks" target="_blank">tricks</a> help in the cause.</p>
 
-<p>Dataset used was MNIST.
-The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.</p>
+<p>The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.</p>
 
-<h1 id="results">Results</h1>
+<h2 id="training-params">Training Params</h2>
 
-<h2 id="no-batch-normalization-leakyrelu-activation">No Batch Normalization, LeakyRELU Activation:</h2>
+<ul>
+<li>Dataset: MNIST</li>
+<li>Optimizer: Adam</li>
+<li>Learning Rate: 0.0001</li>
+<li>Epochs: 25</li>
+<li>128 valued random noise</li>
+<li>Loss: One of (MSELoss, BCEWithLogitsLoss)</li>
+</ul>
+
+<h2 id="results">Results</h2>
+
+<h3 id="no-batch-normalization-leakyrelu-activation">No Batch Normalization, LeakyRELU Activation:</h3>
 
 <table align='center' border='1'>
 <tr align='center'>
@@ -191,7 +201,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 </tr>
 </table>
 
-<h2 id="batch-normalization-leakyrelu-activation">Batch Normalization, LeakyReLU Activation:</h2>
+<h3 id="batch-normalization-leakyrelu-activation">Batch Normalization, LeakyReLU Activation:</h3>
 
 <table align='center' border='1'>
 <tr align='center'>
@@ -206,7 +216,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 </tr>
 </table>
 
-<h2 id="batch-normalization-prelu-activation">Batch Normalization, PReLU Activation:</h2>
+<h3 id="batch-normalization-prelu-activation">Batch Normalization, PReLU Activation:</h3>
 
 <table align='center' border='1'>
 <tr align='center'>
@@ -221,7 +231,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 </tr>
 </table>
 
-<h2 id="batch-normalization-relu-activation">Batch Normalization, ReLU Activation:</h2>
+<h3 id="batch-normalization-relu-activation">Batch Normalization, ReLU Activation:</h3>
 
 <table align='center' border='1'>
 <tr align='center'>
@@ -236,7 +246,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 </tr>
 </table>
 
-<h2 id="least-square-loss-batch-normalization-leakyrelu-activation">Least Square Loss, Batch Normalization, LeakyReLU Activation:</h2>
+<h3 id="mean-square-loss-batch-normalization-leakyrelu-activation">Mean Square Loss, Batch Normalization, LeakyReLU Activation:</h3>
 
 <table align='center' border='1'>
 <tr align='center'>
@@ -251,7 +261,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 </tr>
 </table>
 
-<h2 id="least-square-loss-batch-normalization-relu-activation">Least Square Loss, Batch Normalization, ReLU Activation:</h2>
+<h3 id="mean-square-loss-batch-normalization-relu-activation">Mean Square Loss, Batch Normalization, ReLU Activation:</h3>
 
 <table align='center' border='1'>
 <tr align='center'>
@@ -265,6 +275,14 @@ The architecture was pretty simple: a few fully connected layers, as the data is
 <td><img src = '/img/gan/lsrelu25.png'>
 </tr>
 </table>
+
+<h3 id="observations">Observations</h3>
+
+<ul>
+<li>LeakyReLU doesn&rsquo;t seem to work as good as claimed against ReLU. Maybe because there is no convolutional layer involved in this architecture.</li>
+<li>Batch Normalization helps. For the &lsquo;No BatchNormalization&rsquo; case, we see all the digits are similar. I guess Batch Normalization provides the necessary variance needed to get different digits, for other cases.</li>
+<li>Square Loss is impressive. It gave better images for both LeakyReLU and ReLU activations.</li>
+</ul>
 
     </div>
   </div>

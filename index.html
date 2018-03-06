@@ -80,9 +80,9 @@
         
 
         <li class="nav-item">
-          <a href="./#projects" data-target="#projects">
+          <a href="./#posts" data-target="#posts">
             
-            <span>Projects</span>
+            <span>Posts</span>
           </a>
         </li>
 
@@ -92,9 +92,9 @@
         
 
         <li class="nav-item">
-          <a href="./#posts" data-target="#posts">
+          <a href="./#projects" data-target="#projects">
             
-            <span>Posts</span>
+            <span>Projects</span>
           </a>
         </li>
 
@@ -203,9 +203,9 @@
 
     
 
-<h1 id="biography">Biography</h1>
+<h1 id="about">About</h1>
 
-<p>I&rsquo;m Siddharth, Junior Undergraduate at CSE, IIT Kanpur, India and I&rsquo;m broadly interested in Machine Learning, Deep Learning with applications to Computer Vision, NLP and Speech. I am also intrigued by Operating Systems and am looking forward to exploring them.</p>
+<p>I&rsquo;m Siddharth, Junior Undergraduate at CSE, IIT Kanpur, India and I&rsquo;m broadly interested in Machine Learning, specifically Deep Learning and its applications to Computer Vision and NLP. I also like Psychology and Cognitive Science, and I&rsquo;ve had the pleasure of studying these through some wonderful courses at IITK.</p>
 
 <p>Apart from my academic pursuits, I enjoy swimming and playing football.</p>
 
@@ -217,11 +217,11 @@
         <h3>Interests</h3>
         <ul class="ul-interests">
           
-          <li>Machine Learning</li>
+          <li>Deep Learning</li>
           
-          <li>Computer Vision</li>
+          <li>Computer Vision, NLP</li>
           
-          <li>Operating Systems</li>
+          <li>Cognitive Science</li>
           
         </ul>
       </div>
@@ -321,105 +321,9 @@
 
   <div class="article-style" itemprop="articleBody">
     
-    
-
-<p>I finally implemented a vanilla Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different <a href="https://github.com/soumith/ganhacks" target="_blank">tricks</a> worked.</p>
-
-<p>Dataset used was MNIST.
-The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.</p>
-
-<h1 id="results">Results</h1>
-
-<h2 id="no-batch-normalization-leakyrelu-activation">No Batch Normalization, LeakyRELU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/nobn0.png'>
-<td><img src = '/img/gan/nobn12.png'>
-<td><img src = '/img/gan/nobn25.png'>
-</tr>
-</table>
-
-<h2 id="batch-normalization-leakyrelu-activation">Batch Normalization, LeakyReLU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/bnlrelu0.png'>
-<td><img src = '/img/gan/bnlrelu12.png'>
-<td><img src = '/img/gan/bnlrelu25.png'>
-</tr>
-</table>
-
-<h2 id="batch-normalization-prelu-activation">Batch Normalization, PReLU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/bnprelu0.png'>
-<td><img src = '/img/gan/bnprelu12.png'>
-<td><img src = '/img/gan/bnprelu25.png'>
-</tr>
-</table>
-
-<h2 id="batch-normalization-relu-activation">Batch Normalization, ReLU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/bnrelu0.png'>
-<td><img src = '/img/gan/bnrelu12.png'>
-<td><img src = '/img/gan/bnrelu25.png'>
-</tr>
-</table>
-
-<h2 id="least-square-loss-batch-normalization-leakyrelu-activation">Least Square Loss, Batch Normalization, LeakyReLU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/lslrelu0.png'>
-<td><img src = '/img/gan/lslrelu12.png'>
-<td><img src = '/img/gan/lslrelu25.png'>
-</tr>
-</table>
-
-<h2 id="least-square-loss-batch-normalization-relu-activation">Least Square Loss, Batch Normalization, ReLU Activation:</h2>
-
-<table align='center' border='1'>
-<tr align='center'>
-<td> Epoch 1 </td>
-<td> Epoch 12 </td>
-<td> Epoch 25 </td>
-</tr>
-<tr>
-<td><img src = '/img/gan/lsrelu0.png'>
-<td><img src = '/img/gan/lsrelu12.png'>
-<td><img src = '/img/gan/lsrelu25.png'>
-</tr>
-</table>
-
+    I finally successfully trained a simple Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different tricks help in the cause.
+The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.
+Training Params  Dataset: MNIST Optimizer: Adam Learning Rate: 0.0001 Epochs: 25 128 valued random noise Loss: One of (MSELoss, BCEWithLogitsLoss)  Results No Batch Normalization, LeakyRELU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, LeakyReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, PReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, ReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Mean Square Loss, Batch Normalization, LeakyReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Mean Square Loss, Batch Normalization, ReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Observations  LeakyReLU doesn&rsquo;t seem to work as good as claimed against ReLU.
     
   </div>
   <p class="read-more">
@@ -461,9 +365,9 @@ The architecture was pretty simple: a few fully connected layers, as the data is
           
             <a href="#" data-filter="*" class="btn btn-primary btn-large active">All</a>
           
-            <a href="#" data-filter=".scd" class="btn btn-primary btn-large">Speaker change detection</a>
+            <a href="#" data-filter=".ml" class="btn btn-primary btn-large">ML/DL</a>
           
-            <a href="#" data-filter=".demo" class="btn btn-primary btn-large">Other</a>
+            <a href="#" data-filter=".other" class="btn btn-primary btn-large">Other</a>
           
           </div>
         </div>
@@ -478,7 +382,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
       
       
       
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 project-item isotope-item ">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 project-item isotope-item other">
         <div class="card">
           
           <a href="https://smittal6.github.io/project/markov/" title="" class="card-image hover-overlay"
@@ -501,7 +405,7 @@ The architecture was pretty simple: a few fully connected layers, as the data is
       
       
       
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 project-item isotope-item ">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 project-item isotope-item ml dl">
         <div class="card">
           
           <a href="https://github.com/smittal6/leap-scd/" title="" class="card-image hover-overlay"
