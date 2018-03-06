@@ -134,6 +134,149 @@
   
   <div>
     
+    <h2><a href="https://smittal6.github.io/post/gans/">Comparing GAN-Hacks</a></h2>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2018-03-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Mar 8, 2018
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../tags/deep-learning">Deep Learning</a
+    >, 
+    
+    <a href="../tags/gan">GAN</a
+    >, 
+    
+    <a href="../tags/machine-learning">Machine Learning</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+    <div class="article-style"><p>
+      
+      
+
+<p>I finally implemented a vanilla Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different <a href="https://github.com/soumith/ganhacks" target="_blank">tricks</a> worked.</p>
+
+<p>Dataset used was MNIST.
+The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.</p>
+
+<h1 id="results">Results</h1>
+
+<h2 id="no-batch-normalization-leakyrelu-activation">No Batch Normalization, LeakyRELU Activation:</h2>
+
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/nobn0.png'>
+<td><img src = '/img/gan/nobn12.png'>
+<td><img src = '/img/gan/nobn25.png'>
+</tr>
+</table>
+
+<h2 id="batch-normalization-leakyrelu-activation">Batch Normalization, LeakyReLU Activation:</h2>
+
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/bnlrelu0.png'>
+<td><img src = '/img/gan/bnlrelu12.png'>
+<td><img src = '/img/gan/bnlrelu25.png'>
+</tr>
+</table>
+
+<h2 id="batch-normalization-prelu-activation">Batch Normalization, PReLU Activation:</h2>
+
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/bnprelu0.png'>
+<td><img src = '/img/gan/bnprelu12.png'>
+<td><img src = '/img/gan/bnprelu25.png'>
+</tr>
+</table>
+
+<h2 id="batch-normalization-relu-activation">Batch Normalization, ReLU Activation:</h2>
+
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/bnrelu0.png'>
+<td><img src = '/img/gan/bnrelu12.png'>
+<td><img src = '/img/gan/bnrelu25.png'>
+</tr>
+</table>
+
+<h2 id="least-square-loss-batch-normalization-leakyrelu-activation">Least Square Loss, Batch Normalization, LeakyReLU Activation:</h2>
+
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/lslrelu0.png'>
+<td><img src = '/img/gan/lslrelu12.png'>
+<td><img src = '/img/gan/lslrelu25.png'>
+</tr>
+</table>
+
+<h2 id="least-square-loss-batch-normalization-relu-activation">Least Square Loss, Batch Normalization, ReLU Activation:</h2>
+
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/lsrelu0.png'>
+<td><img src = '/img/gan/lsrelu12.png'>
+<td><img src = '/img/gan/lsrelu25.png'>
+</tr>
+</table>
+
+      
+    </p></div>
+  </div>
+  
+  <div>
+    
     <h2><a href="https://smittal6.github.io/post/getting-started/">Getting started with the Academic framework for Hugo</a></h2>
     
 

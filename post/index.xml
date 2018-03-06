@@ -7,8 +7,115 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-in</language>
     <copyright>&amp;copy; 2017 Siddharth Mittal</copyright>
-    <lastBuildDate>Wed, 20 Apr 2016 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Mar 2018 00:00:00 +0000</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Comparing GAN-Hacks</title>
+      <link>https://smittal6.github.io/post/gans/</link>
+      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://smittal6.github.io/post/gans/</guid>
+      <description>
+
+&lt;p&gt;I finally implemented a vanilla Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different &lt;a href=&#34;https://github.com/soumith/ganhacks&#34; target=&#34;_blank&#34;&gt;tricks&lt;/a&gt; worked.&lt;/p&gt;
+
+&lt;p&gt;Dataset used was MNIST.
+The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.&lt;/p&gt;
+
+&lt;h1 id=&#34;results&#34;&gt;Results&lt;/h1&gt;
+
+&lt;h2 id=&#34;no-batch-normalization-leakyrelu-activation&#34;&gt;No Batch Normalization, LeakyRELU Activation:&lt;/h2&gt;
+
+&lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
+&lt;tr align=&#39;center&#39;&gt;
+&lt;td&gt; Epoch 1 &lt;/td&gt;
+&lt;td&gt; Epoch 12 &lt;/td&gt;
+&lt;td&gt; Epoch 25 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/nobn0.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/nobn12.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/nobn25.png&#39;&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;batch-normalization-leakyrelu-activation&#34;&gt;Batch Normalization, LeakyReLU Activation:&lt;/h2&gt;
+
+&lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
+&lt;tr align=&#39;center&#39;&gt;
+&lt;td&gt; Epoch 1 &lt;/td&gt;
+&lt;td&gt; Epoch 12 &lt;/td&gt;
+&lt;td&gt; Epoch 25 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/bnlrelu0.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/bnlrelu12.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/bnlrelu25.png&#39;&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;batch-normalization-prelu-activation&#34;&gt;Batch Normalization, PReLU Activation:&lt;/h2&gt;
+
+&lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
+&lt;tr align=&#39;center&#39;&gt;
+&lt;td&gt; Epoch 1 &lt;/td&gt;
+&lt;td&gt; Epoch 12 &lt;/td&gt;
+&lt;td&gt; Epoch 25 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/bnprelu0.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/bnprelu12.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/bnprelu25.png&#39;&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;batch-normalization-relu-activation&#34;&gt;Batch Normalization, ReLU Activation:&lt;/h2&gt;
+
+&lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
+&lt;tr align=&#39;center&#39;&gt;
+&lt;td&gt; Epoch 1 &lt;/td&gt;
+&lt;td&gt; Epoch 12 &lt;/td&gt;
+&lt;td&gt; Epoch 25 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/bnrelu0.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/bnrelu12.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/bnrelu25.png&#39;&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;least-square-loss-batch-normalization-leakyrelu-activation&#34;&gt;Least Square Loss, Batch Normalization, LeakyReLU Activation:&lt;/h2&gt;
+
+&lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
+&lt;tr align=&#39;center&#39;&gt;
+&lt;td&gt; Epoch 1 &lt;/td&gt;
+&lt;td&gt; Epoch 12 &lt;/td&gt;
+&lt;td&gt; Epoch 25 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/lslrelu0.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/lslrelu12.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/lslrelu25.png&#39;&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;least-square-loss-batch-normalization-relu-activation&#34;&gt;Least Square Loss, Batch Normalization, ReLU Activation:&lt;/h2&gt;
+
+&lt;table align=&#39;center&#39; border=&#39;1&#39;&gt;
+&lt;tr align=&#39;center&#39;&gt;
+&lt;td&gt; Epoch 1 &lt;/td&gt;
+&lt;td&gt; Epoch 12 &lt;/td&gt;
+&lt;td&gt; Epoch 25 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/lsrelu0.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/lsrelu12.png&#39;&gt;
+&lt;td&gt;&lt;img src = &#39;/img/gan/lsrelu25.png&#39;&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+    </item>
     
     <item>
       <title>Getting started with the Academic framework for Hugo</title>

@@ -34,11 +34,11 @@
   <link rel="icon" type="image/png" href="../../img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="../../img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://smittal6.github.io/post/migrate-from-jekyll/">
+  <link rel="canonical" href="https://smittal6.github.io/post/gans/">
 
   
 
-  <title>Migrate from Jekyll to Hugo | Siddharth Mittal</title>
+  <title>Comparing GAN-Hacks | Siddharth Mittal</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -127,14 +127,14 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">Migrate from Jekyll to Hugo</h1>
+    <h1 itemprop="name">Comparing GAN-Hacks</h1>
     
 
 <div class="article-metadata">
 
   <span class="article-date">
-    <time datetime="2014-03-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-      Mon, Mar 10, 2014
+    <time datetime="2018-03-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Mar 8, 2018
     </time>
   </span>
 
@@ -146,7 +146,13 @@
   <span class="article-tags">
     <i class="fa fa-tags"></i>
     
-    <a href="../../tags/jekyll">jekyll</a
+    <a href="../../tags/deep-learning">Deep Learning</a
+    >, 
+    
+    <a href="../../tags/gan">GAN</a
+    >, 
+    
+    <a href="../../tags/machine-learning">Machine Learning</a
     >
     
   </span>
@@ -163,39 +169,102 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<p>Here are a few tips for migrating an existing website from Jekyll to Hugo. These tips can be applied in conjunction with following Hugo Academic&rsquo;s <a href="https://smittal6.github.io/post/getting-started/" target="_blank">getting started guide</a>.</p>
+<p>I finally implemented a vanilla Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different <a href="https://github.com/soumith/ganhacks" target="_blank">tricks</a> worked.</p>
 
-<h2 id="move-static-content-to-static">Move static content to <code>static</code></h2>
+<p>Dataset used was MNIST.
+The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.</p>
 
-<p>Jekyll has a rule that any directory not starting with <code>_</code> will be copied as-is to the <code>_site</code> output. Hugo keeps all static content under <code>static</code>. You should therefore move it all there.
-With Jekyll, something that looked like</p>
+<h1 id="results">Results</h1>
 
-<pre><code>▾ &lt;root&gt;/
-    ▾ images/
-        logo.png
-</code></pre>
+<h2 id="no-batch-normalization-leakyrelu-activation">No Batch Normalization, LeakyRELU Activation:</h2>
 
-<p>should become</p>
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/nobn0.png'>
+<td><img src = '/img/gan/nobn12.png'>
+<td><img src = '/img/gan/nobn25.png'>
+</tr>
+</table>
 
-<pre><code>▾ &lt;root&gt;/
-    ▾ static/
-        ▾ images/
-            logo.png
-</code></pre>
+<h2 id="batch-normalization-leakyrelu-activation">Batch Normalization, LeakyReLU Activation:</h2>
 
-<p>Additionally, you&rsquo;ll want any files that should reside at the root (such as <code>CNAME</code>) to be moved to <code>static</code>.</p>
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/bnlrelu0.png'>
+<td><img src = '/img/gan/bnlrelu12.png'>
+<td><img src = '/img/gan/bnlrelu25.png'>
+</tr>
+</table>
 
-<h2 id="fix-content">Fix content</h2>
+<h2 id="batch-normalization-prelu-activation">Batch Normalization, PReLU Activation:</h2>
 
-<p>Depending on the amount of customization that was done for each post in Jekyll, this step will require more or less effort. There are no hard and fast rules here except that <code>hugo server --watch</code> and the Hugo Academic example site are your friends. Test your changes and fix errors as needed.</p>
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/bnprelu0.png'>
+<td><img src = '/img/gan/bnprelu12.png'>
+<td><img src = '/img/gan/bnprelu25.png'>
+</tr>
+</table>
 
-<h2 id="publish">Publish</h2>
+<h2 id="batch-normalization-relu-activation">Batch Normalization, ReLU Activation:</h2>
 
-<p>The default is for Jekyll to publish the website to a <code>_site</code> directory, whereas Hugo publishes to a <code>public</code> directory.</p>
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/bnrelu0.png'>
+<td><img src = '/img/gan/bnrelu12.png'>
+<td><img src = '/img/gan/bnrelu25.png'>
+</tr>
+</table>
 
-<h2 id="a-practical-example">A practical example</h2>
+<h2 id="least-square-loss-batch-normalization-leakyrelu-activation">Least Square Loss, Batch Normalization, LeakyReLU Activation:</h2>
 
-<p>Alexandre Normand migrated his website from Jekyll to Hugo in less than a day. You can see all his changes by looking at this GitHub <a href="https://github.com/alexandre-normand/alexandre-normand/compare/869d69435bd2665c3fbf5b5c78d4c22759d7613a...b7f6605b1265e83b4b81495423294208cc74d610" target="_blank">diff</a>. However, bear in mind that this example is <strong>not specific to the Academic theme nor does it use the latest version of Hugo</strong>.</p>
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/lslrelu0.png'>
+<td><img src = '/img/gan/lslrelu12.png'>
+<td><img src = '/img/gan/lslrelu25.png'>
+</tr>
+</table>
+
+<h2 id="least-square-loss-batch-normalization-relu-activation">Least Square Loss, Batch Normalization, ReLU Activation:</h2>
+
+<table align='center' border='1'>
+<tr align='center'>
+<td> Epoch 1 </td>
+<td> Epoch 12 </td>
+<td> Epoch 25 </td>
+</tr>
+<tr>
+<td><img src = '/img/gan/lsrelu0.png'>
+<td><img src = '/img/gan/lsrelu12.png'>
+<td><img src = '/img/gan/lsrelu25.png'>
+</tr>
+</table>
 
     </div>
   </div>
@@ -206,10 +275,10 @@ With Jekyll, something that looked like</p>
   <nav>
   <ul class="pager">
     
-
+    <li class="previous"><a href="https://smittal6.github.io/post/getting-started/"><span
+      aria-hidden="true">&larr;</span> Getting started with the Academic framework for Hugo</a></li>
     
-    <li class="next"><a href="https://smittal6.github.io/post/writing-markdown-latex/">Writing content with Markdown, LaTeX, and Shortcodes <span
-      aria-hidden="true">&rarr;</span></a></li>
+
     
   </ul>
 </nav>
