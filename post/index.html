@@ -172,9 +172,22 @@
 
     <div class="article-style"><p>
       
-      I finally successfully trained a simple Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different tricks help in the cause.
-The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.
-Training Params  Dataset: MNIST Optimizer: Adam Learning Rate: 0.0001 Epochs: 25 128 valued random noise Loss: One of (MSELoss, BCEWithLogitsLoss)  Results No Batch Normalization, LeakyRELU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, LeakyReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, PReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Batch Normalization, ReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Mean Square Loss, Batch Normalization, LeakyReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Mean Square Loss, Batch Normalization, ReLU Activation:  Epoch 1   Epoch 12   Epoch 25      Observations  LeakyReLU doesn&rsquo;t seem to work as good as claimed against ReLU.
+      I finally successfully trained a simple Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different <a href="https://github.com/soumith/ganhacks" target="_blank">tricks</a> help in the cause.</p>
+
+<p>The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.</p>
+
+<h2 id="training-params">Training Params</h2>
+
+<ul>
+<li>Dataset: MNIST</li>
+<li>Optimizer: Adam</li>
+<li>Learning Rate: 0.0001</li>
+<li>Epochs: 25</li>
+<li>128 valued random noise</li>
+<li>Loss: One of (MSELoss, BCEWithLogitsLoss)</li>
+</ul>
+
+<p>
       
     </p></div>
   </div>

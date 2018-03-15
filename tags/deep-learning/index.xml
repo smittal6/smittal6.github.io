@@ -16,9 +16,7 @@
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://smittal6.github.io/post/gans/</guid>
-      <description>
-
-&lt;p&gt;I finally successfully trained a simple Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different &lt;a href=&#34;https://github.com/soumith/ganhacks&#34; target=&#34;_blank&#34;&gt;tricks&lt;/a&gt; help in the cause.&lt;/p&gt;
+      <description>&lt;p&gt;I finally successfully trained a simple Generative Adversarial Network. GANs are notoriously hard to train, and I decided to find out how different &lt;a href=&#34;https://github.com/soumith/ganhacks&#34; target=&#34;_blank&#34;&gt;tricks&lt;/a&gt; help in the cause.&lt;/p&gt;
 
 &lt;p&gt;The architecture was pretty simple: a few fully connected layers, as the data is not very complex. Both the discriminator and generator had similar number of parameters.&lt;/p&gt;
 
@@ -32,6 +30,8 @@
 &lt;li&gt;128 valued random noise&lt;/li&gt;
 &lt;li&gt;Loss: One of (MSELoss, BCEWithLogitsLoss)&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
 
@@ -131,8 +131,7 @@
 &lt;li&gt;LeakyReLU doesn&amp;rsquo;t seem to work as good as claimed against ReLU. Maybe because there is no convolutional layer involved in this architecture.&lt;/li&gt;
 &lt;li&gt;Batch Normalization helps. For the &amp;lsquo;No BatchNormalization&amp;rsquo; case, we see all the digits are similar. I guess Batch Normalization provides the necessary variance needed to get different digits, for other cases.&lt;/li&gt;
 &lt;li&gt;Square Loss is impressive. It gave better images for both LeakyReLU and ReLU activations.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+&lt;/ul&gt;</description>
     </item>
     
   </channel>
